@@ -63,6 +63,21 @@ ButtonsTab:Button({
 			Duration = 2
 		})
 	end,
+}) 
+
+ButtonsTab:Section('Funcionalidades')
+
+ButtonsTab:Button({
+	Title = 'FPS BOOST',
+	Description = 'Otimize seu jogo com um click.',
+	CallBack = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Eazvy/Eazvy-Hub/refs/heads/main/Content/FPSBooster.lua",true))()
+		syde:Notify({
+			Title = 'FPS BOOST',
+			Content = 'Jogo otimizado!',
+			Duration = 2
+		})
+	end,
 })
 
 ButtonsTab:Section('Scripts HUBS')
