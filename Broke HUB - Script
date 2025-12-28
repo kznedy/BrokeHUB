@@ -30,9 +30,9 @@ local Window = syde:Init({
 
 local ButtonsTab  = Window:InitTab({ Title = 'Inicio' })
 local ControlsTab = Window:InitTab({ Title = 'Local Player & Configurações' })
-local AdvancedTab = Window:InitTab({ Title = 'Recursos avançados' })
 local NeedScripts = Window:InitTab({ Title = 'Scripts Necessarios' })
 local MuderMistery = Window:InitTab({ Title = 'Muder Mistery 2' })
+local LumberTycoon = Window:InitTab({ Title = 'Lumber Tycoon 2' })
 local FleeTheFacility = Window:InitTab({ Title = 'Flee The Facility' })
 local NineNineNights = Window:InitTab({ Title = '99 Nights In The Forest' })
 local BladeBall = Window:InitTab({ Title = 'Blade Ball' })
@@ -246,96 +246,6 @@ ControlsTab:CreateSlider({
 	}
 })
 
-AdvancedTab:Section('Color Pickers')
-
-AdvancedTab:ColorPicker({
-	Title = 'Theme Color',
-	Color = Color3.fromRGB(255, 100, 100),
-	CallBack = function(color)
-		print('Theme color selected:', color)
-		syde:Notify({
-			Title = 'Color Changed',
-			Content = 'New theme color applied!',
-			Duration = 2
-		})
-	end,
-})
-
-AdvancedTab:ColorPicker({
-	Title = 'Primary Color',
-	Description = 'This color can be linked to others',
-	Linkable = true,
-	Color = Color3.fromRGB(100, 150, 255),
-	CallBack = function(color)
-		print('Primary color selected:', color)
-		if game.Workspace:FindFirstChild('Part') then
-			game.Workspace.Part.Color = color
-		end
-	end,
-})
-
-AdvancedTab:ColorPicker({
-	Title = 'Secondary Color',
-	Description = 'Links with the primary color',
-	Linkable = true,
-	Color = Color3.fromRGB(255, 200, 100),
-	CallBack = function(color)
-		print('Secondary color selected:', color)
-	end,
-})
-
-AdvancedTab:ColorPicker({
-	Title = 'Independent Color',
-	Description = 'This color picker works independently',
-	Linkable = false,
-	Color = Color3.fromRGB(150, 255, 150),
-	CallBack = function(color)
-		print('Independent color selected:', color)
-	end,
-})
-
-AdvancedTab:Button({
-	Title = 'Testar Notificações',
-	Description = 'Exibe diferentes tipos de notificações',
-	CallBack = function()
-		syde:Notify({
-			Title = 'Mensagem Rapida',
-			Content = 'Esta é uma notificação breve..',
-			Duration = 1
-		})
-		
-		task.wait(1.5)
-		syde:Notify({
-			Title = 'Informação',
-			Content = 'Esta é uma mensagem de notificação mais longa que demonstra como o sistema lida com grandes quantidades de conteúdo de texto.',
-			Duration = 4
-		})
-		
-		task.wait(2)
-		syde:Notify({
-			Title = 'Aviso final',
-			Content = 'Isso conclui a sequência de testes de notificação..',
-			Duration = 3
-		})
-	end,
-})
-
-AdvancedTab:Section('Informações do Sistema')
-
-AdvancedTab:Paragraph({
-	Title = 'Informação da Interface',
-	Content = 'Broke HUB - Version: ' .. (syde.Build or 'Unknown') .. '\n.Interface Atualizada'
-})
-
-print('A biblioteca Syde UI foi carregada com sucesso, incluindo todos os seus recursos.!')
-print('Elementos disponíveis: Botões, Alternadores, Controles deslizantes, Listas suspensas, Campos de texto, Seletores de cores, Atalhos de teclado, Imagens, Rótulos, Parágrafos, Seções, Classificação, Modais, Notificações')
-
-syde:Notify({
-	Title = 'Broke HUB',
-	Content = 'Todos os recursos da biblioteca foram carregados com sucesso! Explore cada aba para ver os diferentes elementos..',
-	Duration = 5
-})
-
 NeedScripts:Section('Comandos Admin')
 
 NeedScripts:Button({
@@ -498,6 +408,20 @@ BladeBall:Button({
 	Title = 'Argon',
 	CallBack = function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/SoyAdriYT/PitbullHubX/refs/heads/main/PitbullHubX.lua", true))() 
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+LumberTycoon:Section('Scripts')
+
+LumberTycoon:Button({
+	Title = 'Kron-Hub',
+	CallBack = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/DevKron/Kron_Hub/refs/heads/main/version_1.0'))("")
 		syde:Notify({
 			Title = 'Sucesso',
 			Content = 'Script Carregado!',
