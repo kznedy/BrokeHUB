@@ -1,0 +1,492 @@
+local syde = loadstring(game:HttpGet("https://raw.githubusercontent.com/essencejs/syde/refs/heads/main/source", true))()
+
+syde:Load({
+	Logo = '7488932274',
+	Name = 'Broke HUB',
+	Status = 'Stable',
+	Accent = Color3.fromRGB(251, 144, 255),
+	HitBox = Color3.fromRGB(251, 144, 255),
+	AutoLoad = false,
+	Socials = {
+		{
+		}
+	},
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = 'Broke HUB',
+		FileName = "config"
+	},
+	AutoJoinDiscord = {
+		Enabled = false,
+		Invite = "Xf7hJj9RWd",
+		RememberJoins = false
+	}
+})
+
+local Window = syde:Init({
+    Title = 'Broke HUB',
+    SubText = 'By @IKenny'
+})
+
+local ButtonsTab  = Window:InitTab({ Title = 'Inicio' })
+local ControlsTab = Window:InitTab({ Title = 'Local Player & Configurações' })
+local AdvancedTab = Window:InitTab({ Title = 'Recursos avançados' })
+local NeedScripts = Window:InitTab({ Title = 'Scripts Necessarios' })
+local MuderMistery = Window:InitTab({ Title = 'Muder Mistery 2' })
+local FleeTheFacility = Window:InitTab({ Title = 'Flee The Facility' })
+local NineNineNights = Window:InitTab({ Title = '99 Nights In The Forest' })
+local BladeBall = Window:InitTab({ Title = 'Blade Ball' })
+
+ButtonsTab:Section('Teste de Executor')
+
+ButtonsTab:Button({
+	Title = 'UNC',
+	Description = 'Mostra Quanto % seu executor consegue executar modulos de scripts',
+	CallBack = function()
+		loadstring(game:HttpGet("https://github.com/ltseverydayyou/uuuuuuu/blob/main/UNC%20test?raw=true"))()
+		syde:Notify({
+			Title = 'UNC - Test',
+			Content = 'Teste Iniciado!',
+			Duration = 2
+		})
+	end,
+})
+
+ButtonsTab:Button({
+	Title = 'sUNC',
+	Description = 'Projetado para elevar o padrão de testes de executores, garantindo que as funções operem conforme o esperado, expondo implementações falsas e fornecendo total transparência no desempenho do executor em situações reais.',
+	CallBack = function()
+		loadstring(game:HttpGet("https://script.sunc.su/"))()
+		syde:Notify({
+			Title = 'sUNC - Test',
+			Content = 'Teste Iniciado!',
+			Duration = 2
+		})
+	end,
+})
+
+ButtonsTab:Section('Scripts HUBS')
+
+ButtonsTab:Button({
+	Title = 'Xvc HUB',
+	CallBack = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/Piw5bqGq"))()
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+ButtonsTab:Button({
+	Title = 'Nut HUB',
+	CallBack = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/sylolua/loader/refs/heads/main/NH"))()
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+ButtonsTab:Button({
+	Title = 'Solara HUB',
+	CallBack = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/samuraa1/Solara-Hub/refs/heads/main/SH.lua'))()
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+ControlsTab:Section('Teclas de atalhos')
+
+ControlsTab:Keybind({
+	Title = 'Mostrar/Esconder interface',
+	Key = Enum.KeyCode.RightShift,
+	CallBack = function()
+		print('Tecla de atalho - interface!')
+		syde:Notify({
+			Title = 'Tecla Pressionada',
+			Content = 'Tecla da interface pressionada!',
+			Duration = 2
+		})
+	end,
+})
+
+ControlsTab:Keybind({
+	Title = 'Salvamento Rapido',
+	Description = 'Salva a configuração com um click',
+	Key = Enum.KeyCode.F5,
+	CallBack = function()
+		print('Salvamento Rapido ativo!')
+		syde:Notify({
+			Title = 'Jogo Salvo',
+			Content = 'Sua configuração foi salva!',
+			Duration = 2
+		})
+	end,
+})
+
+ControlsTab:Section('Controles')
+
+ControlsTab:CreateSlider({
+	Title = 'Configurações do jogador',
+	Description = '',
+	Sliders = {
+		{
+			Title = 'Velocidade',
+			Range = {16, 250},
+			Increment = 1,
+			StarterValue = 16,
+			CallBack = function(value)
+				if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+				end
+				print('Velocidade definida:', value)
+				syde:Notify({
+					Title = 'Velocidade atualizada',
+					Content = 'Velocidade: ' .. value,
+					Duration = 1
+				})
+			end,
+		},
+		{
+			Title = 'Força do pulo',
+			Range = {50, 200},
+			Increment = 5,
+			StarterValue = 50,
+			CallBack = function(value)
+				if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+					game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
+				end
+				print('Força do pulo definida:', value)
+			end,
+		},
+		{
+			Title = 'FOV',
+			Range = {70, 120},
+			Increment = 1,
+			StarterValue = 70,
+			CallBack = function(value)
+				game.Workspace.CurrentCamera.FieldOfView = value
+				print('FOV definido:', value)
+			end,
+		},
+		{
+			Title = 'Gravidade',
+			Range = {0, 500},
+			Increment = 10,
+			StarterValue = 196.2,
+			CallBack = function(value)
+				workspace.Gravity = Value
+				print('Gravidade definida:', value)
+			end,
+		}
+	}
+})
+
+ControlsTab:CreateSlider({
+	Title = 'Configurações gráficas',
+	Description = 'Ajustes Visuais',
+	Sliders = {
+		{
+			Title = 'Brilho',
+			Range = {0, 10},
+			Increment = 1,
+			StarterValue = 2,
+			CallBack = function(value)
+				game.Lighting.Brightness = value
+				print('Brilho definido:', value)
+			end,
+		},
+		{
+			Title = 'Contrast',
+			Range = {0, 5},
+			Increment = 0.1,
+			StarterValue = 0,
+			CallBack = function(value)
+				print('Contrast set to:', value)
+			end,
+		}
+	}
+})
+
+ControlsTab:CreateSlider({
+	Title = 'Configurações de Audio',
+	Sliders = {
+		{
+			Title = 'Master Volume',
+			Range = {0, 100},
+			Increment = 5,
+			StarterValue = 50,
+			CallBack = function(value)
+				print('Master volume:', value)
+			end,
+		}
+	}
+})
+
+AdvancedTab:Section('Color Pickers')
+
+AdvancedTab:ColorPicker({
+	Title = 'Theme Color',
+	Color = Color3.fromRGB(255, 100, 100),
+	CallBack = function(color)
+		print('Theme color selected:', color)
+		syde:Notify({
+			Title = 'Color Changed',
+			Content = 'New theme color applied!',
+			Duration = 2
+		})
+	end,
+})
+
+AdvancedTab:ColorPicker({
+	Title = 'Primary Color',
+	Description = 'This color can be linked to others',
+	Linkable = true,
+	Color = Color3.fromRGB(100, 150, 255),
+	CallBack = function(color)
+		print('Primary color selected:', color)
+		if game.Workspace:FindFirstChild('Part') then
+			game.Workspace.Part.Color = color
+		end
+	end,
+})
+
+AdvancedTab:ColorPicker({
+	Title = 'Secondary Color',
+	Description = 'Links with the primary color',
+	Linkable = true,
+	Color = Color3.fromRGB(255, 200, 100),
+	CallBack = function(color)
+		print('Secondary color selected:', color)
+	end,
+})
+
+AdvancedTab:ColorPicker({
+	Title = 'Independent Color',
+	Description = 'This color picker works independently',
+	Linkable = false,
+	Color = Color3.fromRGB(150, 255, 150),
+	CallBack = function(color)
+		print('Independent color selected:', color)
+	end,
+})
+
+AdvancedTab:Button({
+	Title = 'Testar Notificações',
+	Description = 'Exibe diferentes tipos de notificações',
+	CallBack = function()
+		syde:Notify({
+			Title = 'Mensagem Rapida',
+			Content = 'Esta é uma notificação breve..',
+			Duration = 1
+		})
+		
+		task.wait(1.5)
+		syde:Notify({
+			Title = 'Informação',
+			Content = 'Esta é uma mensagem de notificação mais longa que demonstra como o sistema lida com grandes quantidades de conteúdo de texto.',
+			Duration = 4
+		})
+		
+		task.wait(2)
+		syde:Notify({
+			Title = 'Aviso final',
+			Content = 'Isso conclui a sequência de testes de notificação..',
+			Duration = 3
+		})
+	end,
+})
+
+AdvancedTab:Section('Informações do Sistema')
+
+AdvancedTab:Paragraph({
+	Title = 'Informação da Interface',
+	Content = 'Broke HUB - Version: ' .. (syde.Build or 'Unknown') .. '\n.Interface Atualizada'
+})
+
+print('A biblioteca Syde UI foi carregada com sucesso, incluindo todos os seus recursos.!')
+print('Elementos disponíveis: Botões, Alternadores, Controles deslizantes, Listas suspensas, Campos de texto, Seletores de cores, Atalhos de teclado, Imagens, Rótulos, Parágrafos, Seções, Classificação, Modais, Notificações')
+
+syde:Notify({
+	Title = 'Broke HUB',
+	Content = 'Todos os recursos da biblioteca foram carregados com sucesso! Explore cada aba para ver os diferentes elementos..',
+	Duration = 5
+})
+
+NeedScripts:Section('Comandos Admin')
+
+NeedScripts:Button({
+	Title = 'Infinity Yield',
+	CallBack = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+NeedScripts:Button({
+	Title = 'Universal Script CMD',
+	CallBack = function()
+		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-cmd-admin-commands-45089"))()
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+NeedScripts:Section('Exploradores')
+
+NeedScripts:Button({
+	Title = 'Dex Explorer',
+	CallBack = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/BigBoyTimme/New.Loadstring.Scripts/refs/heads/main/Dex.Explorer"))()
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+NeedScripts:Button({
+	Title = 'Simply Spy',
+	CallBack = function()
+		loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpyBeta.lua"))()
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+NeedScripts:Section('Animações')
+
+NeedScripts:Button({
+	Title = 'Selenix Animations',
+	CallBack = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/WaveStorag/Selenix/refs/heads/main/sac-main"))()
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+NeedScripts:Button({
+	Title = 'Droply Animations',
+	CallBack = function()
+		loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpyBeta.lua"))()
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+NeedScripts:Button({
+	Title = 'Animation Manager',
+	CallBack = function()
+		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-GAE-SIMPLIFIED-27193"))()
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+NeedScripts:Button({
+	Title = 'Sus Eazvy Hub',
+	CallBack = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Eazvy/public-scripts/main/Universal_Animations_Emotes.lua"))() 
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+NeedScripts:Button({
+	Title = 'UGC Emotes Player',
+	CallBack = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/XVCHub/scripts/refs/heads/main/ugc-emote-player",true))() 
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+MuderMistery:Section('Scripts')
+
+MuderMistery:Button({
+	Title = 'Thunder Hub X',
+	CallBack = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/thunderXhub/ThunderXHUB/refs/heads/main/loader'))()
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+FleeTheFacility:Section('Scripts')
+
+FleeTheFacility:Button({
+	Title = 'Flee The Facility 1',
+	CallBack = function()
+		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ff6fc0d89a86664024b4d3c1112c2630.lua"))()
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+NineNineNights:Section('Scripts')
+
+NineNineNights:Button({
+	Title = 'VoidWare',
+	CallBack = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/nightsintheforest.lua", true))()
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
+
+BladeBall:Section('Scripts')
+
+BladeBall:Button({
+	Title = 'Argon',
+	CallBack = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/SoyAdriYT/PitbullHubX/refs/heads/main/PitbullHubX.lua", true))() 
+		syde:Notify({
+			Title = 'Sucesso',
+			Content = 'Script Carregado!',
+			Duration = 3
+		})
+	end,
+})
