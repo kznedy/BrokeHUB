@@ -31,6 +31,7 @@ local Window = syde:Init({
 local ButtonsTab  = Window:InitTab({ Title = 'Inicio' })
 local ControlsTab = Window:InitTab({ Title = 'Local Player & Configurações' })
 local NeedScripts = Window:InitTab({ Title = 'Scripts Necessarios' })
+local divisao1 = Window:InitTab({ Title = '-----------------' })
 local MuderMistery = Window:InitTab({ Title = 'Muder Mistery 2' })
 local LumberTycoon = Window:InitTab({ Title = 'Lumber Tycoon 2' })
 local FleeTheFacility = Window:InitTab({ Title = 'Flee The Facility' })
