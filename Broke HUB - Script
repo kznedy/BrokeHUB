@@ -81,6 +81,19 @@ ButtonsTab:Button({
 	end,
 })
 
+ButtonsTab:Button({
+	Title = 'FREECAM',
+	Description = 'Camera Livre.',
+	CallBack = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/4JrUuEqn"))()
+		syde:Notify({
+			Title = 'FreeCam',
+			Content = 'SHIFT + P para ativar!',
+			Duration = 2
+		})
+	end,
+})
+
 ButtonsTab:Section('Scripts HUBS')
 
 ButtonsTab:Button({
